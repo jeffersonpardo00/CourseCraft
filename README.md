@@ -23,3 +23,4 @@ An AI-assisted curriculum guidance for non-professional educators.
 - Review what .NET was?? I remember is somthing like a transaltor like JAVA
 - Investigate about controllers, routes and dependency injection. what is that?
 - recibe a static "Hello world" message in postman
+- Determine the version workflow
