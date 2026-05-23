@@ -24,3 +24,5 @@ An AI-assisted curriculum guidance for non-professional educators.
 - Investigate about controllers, routes and dependency injection. what is that?
 - recibe a static "Hello world" message in postman
 - Determine the version workflow
+- Remember create test (how?? :o)
+  
