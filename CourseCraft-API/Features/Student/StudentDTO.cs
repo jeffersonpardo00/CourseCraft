@@ -1,6 +1,5 @@
-public record CreateStudentDTO
+public record CreateStudentRequest
 (
-    int Id,
     string FirstName,
     string MiddleName,
     string LastName,
@@ -11,9 +10,8 @@ public record CreateStudentDTO
     string[]? Interests,
     string[]? Notes
 );
-public record UpdateStudentBasicInfoDTO
+public record UpdateStudentBasicInfoRequest
 (
-    int Id,
     string FirstName,
     string MiddleName,
     string LastName,
@@ -21,18 +19,18 @@ public record UpdateStudentBasicInfoDTO
     string Email,
     DateTime BirthDate
 );
-public record UpdateStudentLevelDTO
+public record UpdateStudentLevelRequest
 (
     int Id,
     decimal LearningLevel
 );
-public record CreateStudentInterestDTO
+public record CreateStudentInterestRequest
 (
     int StudentId,
     string Interest
 );
 
-public record CreateStudentNoteDTO
+public record CreateStudentNoteRequest
 (
     int Id,
     string Note
