@@ -4,7 +4,23 @@ But they don’t know:  what to teach, in what order, at what difficulty, or how
 
 *CourseCraft* is the solution.
 An AI-assisted curriculum guidance for non-professional educators.
+# Session 2
 
+## Completed
+- Student model completed
+- Project structure choosen
+
+## Problems
+- I advance slowly because there are somethings I don't remember or just don't know.
+- I think too much of whats the better aproach 
+
+## Next session
+- Create a get Student endpoint [ ]
+- Write a create Student endpoint [ ]
+- Find how to write test in minimal .NET API [ ]
+- Write a test for getStudent [ ]
+- Do a scketch of what the MVP Would consist []
+  
 # Session 1
 
 ## Completed
@@ -18,7 +34,7 @@ An AI-assisted curriculum guidance for non-professional educators.
 - Im not sure if studying minimal API would be a good idea because many legacy projects are written using controllers
 
 ## Next session
-- Create the student model [ ]
+- Create the student model [*]
     {
       Name
       Age
@@ -26,13 +42,13 @@ An AI-assisted curriculum guidance for non-professional educators.
       Interests
       Notes
     }
-- Find a good file structure and logic [ ]
+- Find a good file structure and logic [*]
 - Create a get Student endpoint [ ]
 - Write a create Student endpoint [ ]
 - Find how to write test in minimal .NET API [ ]
 - Write a test for getStudent [ ]
 - Wirte a test for createStudent [ ]
-- Study how MVC works
+- Study how MVC works // not interested rigth know
 
 # Session 0
 
