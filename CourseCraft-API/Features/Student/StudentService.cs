@@ -1,14 +1,13 @@
 public class StudentService(): IStudentService
 {
-    
-    public async Task<Result<GetStudentByIdResp>> GetStudentByIdAsync(int studentId)
+    public async Task<Result<StudentResponse>> GetStudentByIdAsync(int studentId)
     {
         await Task.Delay(500);
         if (studentId != 1)
-            return Result<GetStudentByIdResp>.NotFound("Product not found.");
+            return Result<StudentResponse>.NotFound("Product not found.");
 
        var MockStudent =
-            new GetStudentByIdResp(
+            new StudentResponse(
                 "Molley",
                 null,
                 "Mol",
@@ -20,6 +19,27 @@ public class StudentService(): IStudentService
                 ["note1"]
             );
 
-        return Result<GetStudentByIdResp>.Success(MockStudent);
+        return Result<StudentResponse>.Success(MockStudent);
+    }
+
+    public async Task<Result<StudentResponse>> CreateStudentAsync( CreateStudentRequest createStudentReq)
+    {
+        await Task.Delay(500);
+
+        var newStudent = new StudentResponse
+        (
+            createStudentReq.FirstName, 
+            createStudentReq.MiddleName,
+            createStudentReq.LastName,
+            createStudentReq.LastName2,
+            createStudentReq.Email,
+            createStudentReq.BirthDate,
+            createStudentReq.LearningLevel,
+            createStudentReq.Interests,
+            createStudentReq.Notes
+        );
+
+        return Result<StudentResponse>.Success(newStudent);
+
     }
 }

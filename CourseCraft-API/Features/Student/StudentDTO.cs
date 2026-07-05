@@ -1,15 +1,16 @@
-// public record CreateStudentRequest
-// (
-//     string FirstName,
-//     string MiddleName,
-//     string LastName,
-//     string LastName2,
-//     string Email,
-//     DateTime BirthDate,
-//     int? LearningLevel,
-//     string[]? Interests,
-//     string[]? Notes
-// );
+public record CreateStudentRequest
+(
+    string FirstName,
+    string MiddleName,
+    string LastName,
+    string LastName2,
+    string Email,
+    DateTime BirthDate,
+    int? LearningLevel,
+    string[]? Interests,
+    string[]? Notes
+);
+
 // public record UpdateStudentBasicInfoRequest
 // (
 //     string FirstName,
@@ -36,7 +37,7 @@
 //     string Note
 // );
 
-public record GetStudentByIdResp
+public record StudentResponse
 (
     string FirstName,
     string MiddleName,
