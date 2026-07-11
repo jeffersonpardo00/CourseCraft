@@ -4,7 +4,7 @@ public class StudentService(): IStudentService
     {
         await Task.Delay(500);
         if (studentId != 1)
-            return Result<StudentResponse>.NotFound("Product not found.");
+            return Result<StudentResponse>.NotFound("Student not found.");
 
        var MockStudent =
             new StudentResponse(
@@ -21,7 +21,6 @@ public class StudentService(): IStudentService
 
         return Result<StudentResponse>.Success(MockStudent);
     }
-
     public async Task<Result<StudentResponse>> CreateStudentAsync( CreateStudentRequest createStudentReq)
     {
         await Task.Delay(500);
