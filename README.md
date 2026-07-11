@@ -8,10 +8,10 @@ An AI-assisted curriculum guidance for non-professional educators.
 # Session 4
 
 ## Completed
-- a base test was done
-- the procedure of testing was understood
-- getStudent and createStudent was writen
-- following this [tutorial](https://www.youtube.com/watch?v=R2XpR4goN1s) as base
+- A base test was done
+- The procedure of testing was understood
+- GetStudent and createStudent was writen
+- Following this [tutorial](https://www.youtube.com/watch?v=R2XpR4goN1s) as base
 
 ## Problems
 - Knowledge gap in testing with dotnet
