@@ -5,6 +5,23 @@ But they don’t know:  what to teach, in what order, at what difficulty, or how
 *CourseCraft* is the solution.
 An AI-assisted curriculum guidance for non-professional educators.
 
+# Session 4
+
+## Completed
+- a base test was done
+- the procedure of testing was understood
+- getStudent and createStudent was writen
+- following this [tutorial](https://www.youtube.com/watch?v=R2XpR4goN1s) as base
+
+## Problems
+- Knowledge gap in testing with dotnet
+
+## Next session
+- Do a scketch of the main three screens of the MVP []
+- Do a base project for the front []
+- consume the get student by id endpoint []
+
+
 # Session 3
 
 ## Completed
@@ -17,8 +34,8 @@ An AI-assisted curriculum guidance for non-professional educators.
 - I need better consistency and dicipline in my sessions
 
 ## Next session
-- Write a test for getStudent (follow this [tutorial](https://www.youtube.com/watch?v=e9q-ocrt4UI&list=PLOeFnOV9YBa4Q1a7V5jWTGG9RSpKMYTpK) ) []
-- Write a test for createStudent []
+- Write a test for getStudent (follow this [tutorial](https://www.youtube.com/watch?v=e9q-ocrt4UI&list=PLOeFnOV9YBa4Q1a7V5jWTGG9RSpKMYTpK) ) [*]
+- Write a test for createStudent [*]
 - Do a scketch the main three screens of the MVP []
 - Understand what an [integration testing](https://www.youtube.com/watch?v=OPEC_7J1LOw&list=PLOeFnOV9YBa4Q1a7V5jWTGG9RSpKMYTpK&index=5) is.
 
