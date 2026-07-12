@@ -5,10 +5,29 @@ But they don’t know:  what to teach, in what order, at what difficulty, or how
 *CourseCraft* is the solution.
 An AI-assisted curriculum guidance for non-professional educators.
 
+# Session 5
+
+## Completed
+- A mockup of the important screens was done
+- The frontend angular project was created
+
+## Problems
+- There are new ways to render a frontend app:
+    - SSR - Server-Side Rendering
+    - SSG / Prerendering - Static Site Generation.
+  I went for the tradicional app, but I need to undestand the other two ways
+
+## Next session
+- Consume the get student by id endpoint [ ]
+- Create the layout of the student card in the lesson plan page [ ]
+- Create the neccesary endpoints for retreive mock data to the student card [ ]
+- Create the test for the classes in the API [ ]
+- Connect frontend layout with API [ ]
+
 # Session 4
 
 ## Completed
-- A base test was done
+- A base test project was done
 - The procedure of testing was understood
 - GetStudent and createStudent was writen
 - Following this [tutorial](https://www.youtube.com/watch?v=R2XpR4goN1s) as base
@@ -17,8 +36,8 @@ An AI-assisted curriculum guidance for non-professional educators.
 - Knowledge gap in testing with dotnet
 
 ## Next session
-- Do a scketch of the main three screens of the MVP []
-- Do a base project for the front []
+- Do a scketch of the main three screens of the MVP [*]
+- Do a base project for the front [*]
 - consume the get student by id endpoint []
 
 
