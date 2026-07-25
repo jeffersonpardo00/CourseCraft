@@ -1,0 +1,11 @@
+.lesson-plan-layout {
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  padding: 1.5rem;
+  background: #f6f8fe;
+}
+
+.lesson-plan-layout__center {
+  width: min(100%, 28rem);
+}

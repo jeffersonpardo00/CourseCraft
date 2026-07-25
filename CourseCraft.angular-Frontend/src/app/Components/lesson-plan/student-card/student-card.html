@@ -1,1 +1,22 @@
-<p>student-card works!</p>
+<article class="student-card">
+  <button class="student-card__modify" type="button" aria-label="Edit student profile">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M4.5 19.5l3.75-.75 10.5-10.5-3-3-10.5 10.5-.75 3.75Zm12.75-12.75 2.25 2.25" />
+    </svg>
+  </button>
+
+  <div class="student-card__body">
+    <div class="student-card__photo">
+      <img
+        [src]="student.photoUrl"
+        [alt]="student.name + ' profile photo'"
+      />
+    </div>
+
+    <div class="student-card__details">
+      <h2 class="student-card__name">{{ student.name }}</h2>
+      <p class="student-card__meta">{{ student.age }} yr old</p>
+      <p class="student-card__level">Level {{ student.level }}</p>
+    </div>
+  </div>
+</article>
