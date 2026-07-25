@@ -5,6 +5,22 @@ But they don’t know:  what to teach, in what order, at what difficulty, or how
 *CourseCraft* is the solution.
 An AI-assisted curriculum guidance for non-professional educators.
 
+# Session 6
+
+## Completed
+- The profile student card design was put in the app
+- The card was connected with the API retreaving mock data
+
+## Problems
+- I delegate the layout proccess to the AI. I need to study it to make changes
+- I need to have a better understanding of the use cases to create the test
+
+## Next session
+- Create API endpoints with mock data that allows bring data for the frontend layout of this part of the lesson plan [ ]
+<img width="415" height="690" alt="image" src="https://github.com/user-attachments/assets/dafceff1-e570-4278-9ee4-a9078c887729" />
+- Create one test by funtion created. Try to do test driven development [ ]
+- Generate the user interface with more structured promps [ ]
+
 # Session 5
 
 ## Completed
@@ -18,11 +34,11 @@ An AI-assisted curriculum guidance for non-professional educators.
   I went for the tradicional app, but I need to undestand the other two ways
 
 ## Next session
-- Consume the get student by id endpoint [ ]
-- Create the layout of the student card in the lesson plan page [ ]
-- Create the neccesary endpoints for retreive mock data to the student card [ ]
-- Create the test for the classes in the API [ ]
-- Connect frontend layout with API [ ]
+- Consume the get student by id endpoint [*]
+- Create the layout of the student card in the lesson plan page [*]
+- Create the neccesary endpoints for retreive mock data to the student card [*]
+- Create the test for the classes in the API []
+- Connect frontend layout with API [*]
 
 # Session 4
 
