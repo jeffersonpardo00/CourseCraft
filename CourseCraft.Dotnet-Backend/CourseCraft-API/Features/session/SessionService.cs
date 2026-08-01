@@ -1,11 +1,9 @@
 public class SessionService
 {
-    public async Task<Result<SessionResponse[]>> GetAllSessions(int studentId)
+    public async Task<Result<SessionResponse[]>> GetAllSessions()
     {
         await Task.Delay(500);
-        if (studentId != 1)
-            return Result<SessionResponse[]>.NotFound("Student not found.");
-
+       
         var mockSessions = new[]
         {
             new SessionResponse(
