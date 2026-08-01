@@ -5,6 +5,23 @@ But they don’t know:  what to teach, in what order, at what difficulty, or how
 *CourseCraft* is the solution.
 An AI-assisted curriculum guidance for non-professional educators.
 
+# Session 7
+
+## Completed
+- The backend mock endpoint was made 
+- A basic front end that receives the API response was created
+
+## Problems
+- I named the feature lesson-plan instead of session plan in the front end, I need to rename it
+- I have to actually connect back and front
+- I don't know what the actual session class properties will be.
+- I don't know what data should i send to the AI api
+
+## Next session
+- Understand how can I connect my backend to an AI API []
+- Design what should I send to the AI API []
+- Connect my getAllSession to the API []
+
 # Session 6
 
 ## Completed
@@ -16,10 +33,10 @@ An AI-assisted curriculum guidance for non-professional educators.
 - I need to have a better understanding of the use cases to create the test
 
 ## Next session
-- Create API endpoints with mock data that allows bring data for the frontend layout of this part of the lesson plan [ ]
+- Create API endpoints with mock data that allows bring data for the frontend layout of this part of the lesson plan [*]
 <img width="415" height="690" alt="image" src="https://github.com/user-attachments/assets/dafceff1-e570-4278-9ee4-a9078c887729" />
-- Create one test by funtion created. Try to do test driven development [ ]
-- Generate the user interface with more structured promps [ ]
+- Create one test by function created. Try to do test driven development []
+- Generate the user interface with more structured promps [*]
 
 # Session 5
 
