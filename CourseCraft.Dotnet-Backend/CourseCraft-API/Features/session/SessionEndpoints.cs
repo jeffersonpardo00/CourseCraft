@@ -1,6 +1,6 @@
 public static class SessionEndpoints
 {
-     public static void MapStudentsEndpoints(this WebApplication app)
+     public static void MapSessionEndpoints(this WebApplication app)
     {
         var group = app.MapGroup("/api/session").WithTags("Sessions");
         group.MapGet("/", GetAllSessions);
