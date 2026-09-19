@@ -24,6 +24,7 @@ export class LessonPlanLayout implements OnInit {
 
   ngOnInit(): void {
     this.subGetStudentById();
+    this.subGetAllLessons();
   }
 
   private subGetAllLessons():void {
@@ -33,6 +34,7 @@ export class LessonPlanLayout implements OnInit {
      .pipe(take(1))
       .subscribe((resp: any) => {
         //chage
+        console.log(resp);
         
       });
   }

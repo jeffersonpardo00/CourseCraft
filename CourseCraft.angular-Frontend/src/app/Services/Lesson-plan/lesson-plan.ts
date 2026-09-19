@@ -10,7 +10,7 @@ export class LessonPlanService {
   private http = inject(HttpClient);
 
   public getAllLessons(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/api/session`);
+    return this.http.get<any>(`${environment.apiUrl}/api/lesson`);
   }
 
 }
