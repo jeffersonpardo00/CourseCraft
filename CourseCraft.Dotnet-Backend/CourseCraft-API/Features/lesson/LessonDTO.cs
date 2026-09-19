@@ -1,4 +1,4 @@
-public record SessionResponse
+public record LessonResponse
 (
     int Id,
     string Name,

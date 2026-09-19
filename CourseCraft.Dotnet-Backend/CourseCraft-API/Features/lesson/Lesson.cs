@@ -1,9 +1,9 @@
-public class Session
+public class Lesson
 {
     public required int Id { get; set; }
     public required string Name { get; set; }
     public required string Subject { get; set; }
-    public DateTime LastAdjustement { get; set; }  
+    public DateTime LastAdjustement { get; set; }
     public required string Content { get; set; }
     public required int Status { get; set; }
 }

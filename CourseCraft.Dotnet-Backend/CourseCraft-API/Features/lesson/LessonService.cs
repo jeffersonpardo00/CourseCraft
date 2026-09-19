@@ -1,12 +1,12 @@
-public class SessionService
+public class LessonService : ILessonService
 {
-    public async Task<Result<SessionResponse[]>> GetAllSessions()
+    public async Task<Result<LessonResponse[]>> GetAllLessons()
     {
         await Task.Delay(500);
-       
-        var mockSessions = new[]
+
+        var mockLessons = new[]
         {
-            new SessionResponse(
+            new LessonResponse(
                 1,
                 "Class 1",
                 "Math",
@@ -262,7 +262,7 @@ public class SessionService
                 ,
                 0
             ),
-            new SessionResponse(
+            new LessonResponse(
                 2,
                 "Class 1",
                 "Science",
@@ -519,6 +519,6 @@ public class SessionService
             )
         };
 
-        return Result<SessionResponse[]>.Success(mockSessions);
+        return Result<LessonResponse[]>.Success(mockLessons);
     }
 }

@@ -13,6 +13,7 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<ILessonService, LessonService>();
 var app = builder.Build();
 
 app.UseCors();
@@ -24,6 +25,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.MapStudentsEndpoints();
-app.MapSessionEndpoints();
+app.MapLessonEndpoints();
 
 app.Run();
