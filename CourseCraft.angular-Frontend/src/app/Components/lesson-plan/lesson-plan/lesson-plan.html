@@ -1,0 +1,11 @@
+<ng-container *ngFor="let lesson of lessons; let i = index">
+  <button 
+    class="accordion" 
+    [class.active]="lesson.isOpen"
+    (click)="toggleAccordion(i)">
+    {{ lesson.title }}
+  </button>
+  <div class="panel" [class.open]="lesson.isOpen">
+    <app-lesson [content]="lesson.content"></app-lesson>
+  </div>
+</ng-container>
