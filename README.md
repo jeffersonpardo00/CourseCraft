@@ -5,6 +5,22 @@ But they don’t know:  what to teach, in what order, at what difficulty, or how
 *CourseCraft* is the solution.
 An AI-assisted curriculum guidance for non-professional educators.
 
+# Session 8
+
+## Completed
+- GetAllLessons was connected successfully 
+- A basic AI chat integration was made
+
+## Problems
+- The AIChat endpoint is not working properly
+- The design of what I'll ask the LLM isn't done yet
+- Dont forget the test!
+
+## Next session
+- Send a hardcoded prompt from the frontend and receive the response []
+- Make an scketch of how the backend will interact with the AI integration []
+- Create a MVP of the backend behavior []
+
 # Session 7
 
 ## Completed
@@ -18,9 +34,9 @@ An AI-assisted curriculum guidance for non-professional educators.
 - I don't know what data should i send to the AI api
 
 ## Next session
-- Understand how can I connect my backend to an AI API []
+- Understand how can I connect my backend to an AI API [*]
 - Design what should I send to the AI API []
-- Connect my getAllSession to the API []
+- Connect my getAllSession to the API [*]
 
 # Session 6
 
