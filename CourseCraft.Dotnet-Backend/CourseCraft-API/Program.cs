@@ -1,5 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddEnvironmentVariables();
+
 builder.Services.AddOpenApi();
 
 builder.Services.AddCors(options =>
@@ -14,6 +16,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<ILessonService, LessonService>();
+builder.Services.AddHttpClient<IGeminiAIService, GeminiService>();
 var app = builder.Build();
 
 app.UseCors();
@@ -26,5 +29,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapStudentsEndpoints();
 app.MapLessonEndpoints();
+app.MapChatAIEndpoints();
 
 app.Run();
