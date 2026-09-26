@@ -25,12 +25,25 @@ export class LessonPlanLayout implements OnInit {
   ngOnInit(): void {
     this.subGetStudentById();
     this.subGetAllLessons();
+    this.SubGetGeminiResponse();
   }
 
   private subGetAllLessons():void {
 
     this.LessonPlanService
     .getAllLessons()
+     .pipe(take(1))
+      .subscribe((resp: any) => {
+        //chage
+        console.log(resp);
+        
+      });
+  }
+
+  private SubGetGeminiResponse():void {
+
+    this.LessonPlanService
+    .testGeminiResponse("tell me about you")
      .pipe(take(1))
       .subscribe((resp: any) => {
         //chage
