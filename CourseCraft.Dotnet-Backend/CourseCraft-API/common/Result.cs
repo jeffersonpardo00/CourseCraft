@@ -12,21 +12,33 @@ public sealed class Result<T>
         new(new ResultError(ResultErrorType.NotFound, message));
     public static Result<T> Conflict(string message) =>
         new(new ResultError(ResultErrorType.Conflict, message));
+    public static Result<T> Validation(string message) =>
+        new(new ResultError(
+            ResultErrorType.Validation,
+            message,
+            new Dictionary<string, string[]> { ["message"] = [message] }));
+    public static Result<T> Unavailable(string message = "Service unavailable") =>
+        new(new ResultError(ResultErrorType.Unavailable, message));
+
 }
 
 public static class ResultExtensions
 {
     public static IResult ToHttpResult<T>(this Result<T> result)
     {
-         if (result.IsSuccess)
-        return Results.Ok(result.Value);
+        if (result.IsSuccess)
+            return Results.Ok(result.Value);
 
-    return result.Error!.Type switch
-    {
-        ResultErrorType.NotFound    => Results.NotFound(),
-        ResultErrorType.Conflict    => Results.Conflict(result.Error.Message),
-        ResultErrorType.Validation  => Results.ValidationProblem(result.Error.ValidationErrors!),
-        _                           => Results.StatusCode(500)
-    };
+        return result.Error!.Type switch
+        {
+            ResultErrorType.NotFound => Results.NotFound(),
+            ResultErrorType.Conflict => Results.Conflict(result.Error.Message),
+            ResultErrorType.Validation => Results.ValidationProblem(result.Error.ValidationErrors),
+            ResultErrorType.Unavailable => Results.Problem(
+                detail: result.Error.Message,
+                statusCode: StatusCodes.Status503ServiceUnavailable,
+                title: "Service unavailable"),
+            _ => Results.StatusCode(500)
+        };
     }
 }
