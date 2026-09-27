@@ -1,4 +1,6 @@
 public interface ILessonService
 {
-    public Task<Result<LessonResponse[]>> GetAllLessons();
+    public Task<Result<LessonResponse[]>> GetAllLessons(
+        IChatAIService chatAIService
+    );
 }

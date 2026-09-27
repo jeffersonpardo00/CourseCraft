@@ -3,11 +3,10 @@ using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 
-public class GeminiService: IGeminiAIService
+public class GeminiService: IChatAIService
 {
     private readonly HttpClient _httpClient;
     private readonly string _apiKey;
-
     public GeminiService (HttpClient httpClient, IConfiguration configuration)
     {
         this._httpClient = httpClient;

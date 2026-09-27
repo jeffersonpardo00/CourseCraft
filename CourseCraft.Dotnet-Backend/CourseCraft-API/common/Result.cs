@@ -3,10 +3,8 @@ public sealed class Result<T>
     public T? Value { get; }
     public ResultError? Error { get; }
     public bool IsSuccess => Error is null;
-
     private Result(T value) => Value = value;
     private Result(ResultError error) => Error = error;
-
     public static Result<T> Success(T value) => new(value);
     public static Result<T> NotFound(string message = "Resource not found.") =>
         new(new ResultError(ResultErrorType.NotFound, message));
@@ -20,6 +18,11 @@ public sealed class Result<T>
     public static Result<T> Unavailable(string message = "Service unavailable") =>
         new(new ResultError(ResultErrorType.Unavailable, message));
 
+    public static Result<T> Internal(string message = "Internal server error") =>
+        new(new ResultError(ResultErrorType.Internal, message));
+
+    public static Result<T> SetError(ResultError resultError) => new(resultError);
+    
 }
 
 public static class ResultExtensions

@@ -6,9 +6,12 @@ public static class LessonEndpoints
         group.MapGet("/", GetAllLessons);
     }
 
-    private static async Task<IResult> GetAllLessons(ILessonService service)
+    private static async Task<IResult> GetAllLessons(
+        ILessonService service,
+        IChatAIService chatAIService
+    )
     {
-        var result = await service.GetAllLessons();
+        var result = await service.GetAllLessons(chatAIService);
         return result.ToHttpResult();
     }
 }

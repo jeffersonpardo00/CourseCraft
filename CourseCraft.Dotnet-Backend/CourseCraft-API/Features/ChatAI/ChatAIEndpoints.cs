@@ -6,7 +6,10 @@ public static class ChatAIEndpoints
         group.MapPost("/newGeminiPrompt", GetGeminiChatResponse);
     }
 
-    private static async Task<IResult> GetGeminiChatResponse(ChatAIReq chatAIReq, IGeminiAIService service)
+    private static async Task<IResult> GetGeminiChatResponse(
+        ChatAIReq chatAIReq, 
+        IChatAIService service
+    )
     {
         var result = await service.getChatResponse(chatAIReq);
         return result.ToHttpResult();

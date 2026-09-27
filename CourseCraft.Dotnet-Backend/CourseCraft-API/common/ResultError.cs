@@ -3,16 +3,15 @@ public enum ResultErrorType
     NotFound,
     Conflict,
     Validation,
-    Unavailable
+    Unavailable,
+    Internal
 }
 
 public class ResultError
 {
     public ResultErrorType Type { get; }
     public string Message { get; }
-
     public IDictionary<string, string[]> ValidationErrors { get; }
-
     public ResultError(ResultErrorType type, string message)
         : this(type, message, new Dictionary<string, string[]>())
     {

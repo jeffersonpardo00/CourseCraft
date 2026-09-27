@@ -1,25 +1,43 @@
 public class LessonService : ILessonService
 {
-    public async Task<Result<LessonResponse[]>> GetAllLessons()
-    {
-        await Task.Delay(500);
+    public async Task<Result<LessonResponse[]>> GetAllLessons(
+        IChatAIService chatAIService
+    ) {
+        var result = await chatAIService.getChatResponse(
+            new ChatAIReq
+            {
+                prompt = "tell me about you"
+            }
+        );
 
-        var mockLessons = new[]
+        if (result.IsSuccess)
         {
-            new LessonResponse(
-                1,
-                "Class 1",
-                "Math",
-                new DateTime(2023, 1, 1),
-                new LessonContent
+            var mockLessons = new[]
                 {
-                    Explanation = "Explanation example",
-                    Strategies = "Explanation example"
-                },
-                0
-            ),
-          };
+                    new LessonResponse(
+                        1,
+                        "Class 1",
+                        "Math",
+                        new DateTime(2023, 1, 1),
+                        new LessonContent
+                        {
+                            Explanation = result.Value ?? "",
+                            Strategies = "Explanation example"
+                        },
+                        0
+                    )
+                };
 
-        return Result<LessonResponse[]>.Success(mockLessons);
+            return Result<LessonResponse[]>.Success(mockLessons);
+        }
+        else if (result.Error != null)
+        {
+            return Result<LessonResponse[]>.SetError(result.Error);
+        }
+        else
+        {
+            return Result<LessonResponse[]>.Internal();
+        }
+
     }
 }

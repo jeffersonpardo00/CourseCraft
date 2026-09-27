@@ -25,7 +25,7 @@ export class LessonPlanLayout implements OnInit {
   ngOnInit(): void {
     this.subGetStudentById();
     this.subGetAllLessons();
-    this.SubGetGeminiResponse();
+   // this.SubGetGeminiResponse();
   }
 
   private subGetAllLessons():void {
