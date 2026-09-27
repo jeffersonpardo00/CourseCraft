@@ -21,7 +21,7 @@ public class StudentService(): IStudentService
 
         return Result<StudentResponse>.Success(MockStudent);
     }
-    public async Task<Result<StudentResponse>> CreateStudentAsync( CreateStudentRequest createStudentReq)
+    public async Task<Result<StudentResponse>> CreateStudentAsync( StudentRequest createStudentReq)
     {
         await Task.Delay(500);
 

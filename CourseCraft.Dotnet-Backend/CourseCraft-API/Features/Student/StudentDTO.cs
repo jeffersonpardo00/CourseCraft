@@ -1,4 +1,4 @@
-public record CreateStudentRequest
+public record StudentRequest
 (
     string FirstName,
     string MiddleName,

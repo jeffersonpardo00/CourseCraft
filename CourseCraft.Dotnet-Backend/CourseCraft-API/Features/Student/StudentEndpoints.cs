@@ -15,7 +15,7 @@ public static class StudentEndpoints
     }
 
     private static async Task<IResult> Create(
-        CreateStudentRequest createStudentReq,
+        StudentRequest createStudentReq,
         IStudentService service)
     {
         var result = await service.CreateStudentAsync(createStudentReq);

@@ -52,7 +52,7 @@ public class StudentServiceTest
     public async Task CreateStudentAsync_retrieves_correctInsertion()
     {
         //Arrange
-         var newStudent = new CreateStudentRequest
+         var newStudent = new StudentRequest
         (
             "Jeferson", 
             "Andres",
