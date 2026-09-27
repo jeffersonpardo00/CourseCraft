@@ -4,6 +4,6 @@ public record LessonResponse
     string Name,
     string Subject,
     DateTime LastAdjustement,
-    string Content,
+    LessonContent Content,
     int Status
 );
