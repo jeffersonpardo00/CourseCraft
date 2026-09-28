@@ -4,7 +4,7 @@ public interface ILessonService
         IChatAIService chatAIService
     );
     public Task<Result<LessonResponse[]>> CreateLessonsPlan(
-        IChatAIService chatAIService,
-        Student student
+        StudentAIRequest student,
+        IChatAIService chatAIService
     );
 }

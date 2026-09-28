@@ -1,3 +1,27 @@
+export interface StudentResponse {
+  FirstName: string;
+  MiddleName: string;
+  LastName: string;
+  LastName2: string;
+  Email: string;
+  BirthDate: Date;
+  LearningLevel: number;
+  Interests: string[];
+  Notes: string[];
+}
+
+export const defaultStudentResponse: StudentResponse = {
+  FirstName: '',
+  MiddleName: '',
+  LastName: '',
+  LastName2: '',
+  Email: '',
+  BirthDate: new Date('1900-01-01'),
+  LearningLevel: -1,
+  Interests: [],
+  Notes: []
+ };
+
 export interface StudentCardView {
   name: string;
   age: number;

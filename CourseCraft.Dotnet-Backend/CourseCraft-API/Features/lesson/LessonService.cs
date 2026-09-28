@@ -1,8 +1,9 @@
 public class LessonService : ILessonService
 {
-    public async Task<Result<LessonResponse[]>> CreateLessonsPlan(
-        IChatAIService chatAIService, 
-        Student student)
+    public async Task<Result<LessonResponse[]>> CreateLessonsPlan (
+        StudentAIRequest student,
+        IChatAIService chatAIService
+    )
     {
         var result = await chatAIService.GetLessonsPlan(student);
 
@@ -34,13 +35,11 @@ public class LessonService : ILessonService
         {
             return Result<LessonResponse[]>.Internal();
         }
-
     }
 
     public async Task<Result<LessonResponse[]>> GetAllLessons(
         IChatAIService chatAIService
     ) {
-       
             var mockLessons = new[]
                 {
                     new LessonResponse(
@@ -58,8 +57,6 @@ public class LessonService : ILessonService
                 };
 
             return Result<LessonResponse[]>.Success(mockLessons);
-       
-
     }
 
     

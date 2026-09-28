@@ -16,33 +16,12 @@ public static class LessonEndpoints
     }
 
     private static async Task<IResult> CreateLessonPlan (
-        //Student student,
+        StudentAIRequest student,
         ILessonService service,
         IChatAIService chatAIService
     )
     {
-        var mockStudent = new Student
-        {
-            Id = 1,
-            FirstName = "Molley",
-            LastName = "Smith",
-            Email = "molie.mol@gmail.com",
-            BirthDate = new DateTime(2016, 1, 1),
-            LearningLevel = 2,
-            Interests = [
-                new Interest {Id=0, Text= "drawing"}, 
-                new Interest {Id=1, Text= "basketball"}, 
-                
-            ],
-            Notes = [
-                new Note {
-                    Id=0, 
-                    Text= "she is still struggling with addition"
-                }, 
-            ]
-        };
-
-        var result = await service.CreateLessonsPlan(chatAIService, mockStudent);
+        var result = await service.CreateLessonsPlan(student, chatAIService);
         return result.ToHttpResult();
     }
 }

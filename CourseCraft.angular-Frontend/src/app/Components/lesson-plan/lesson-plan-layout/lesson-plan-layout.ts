@@ -3,7 +3,10 @@ import { StudentCard } from '../student-card/student-card';
 import { LessonPlan } from '../lesson-plan/lesson-plan';
 import { Student } from '../../../Services/student/student';
 import { take } from 'rxjs';
-import { defaultstudent, StudentCardView } from '../../../Models/student';
+import {  defaultstudent, 
+          defaultStudentResponse, 
+          StudentCardView, 
+          StudentResponse } from '../../../Models/student';
 import { LessonPlanService } from '../../../Services/Lesson-plan/lesson-plan';
 import { defaultLessons, LessonI } from '../../../Models/lesson';
 @Component({
@@ -14,8 +17,9 @@ import { defaultLessons, LessonI } from '../../../Models/lesson';
 })
 export class LessonPlanLayout implements OnInit {
 
-  public student: StudentCardView = defaultstudent;
+  public studentCard: StudentCardView = defaultstudent;
   public lessons: LessonI[] = defaultLessons;
+  public studentResponse: StudentResponse = defaultStudentResponse;
 
   constructor(
     private studentService: Student,
@@ -55,25 +59,25 @@ export class LessonPlanLayout implements OnInit {
     this.studentService
       .getStudentById(1)
       .pipe(take(1))
-      .subscribe((resp: any) => {
+      .subscribe((resp: StudentResponse) => {
         if (!resp) {
           return;
         }
 
         const fullName = [
-          resp.firstName,
-          resp.middleName,
-          resp.lastName,
-          resp.lastName2,
+          resp.FirstName,
+          resp.MiddleName,
+          resp.LastName,
+          resp.LastName2,
         ]
           .filter(Boolean)
           .join(' ');
 
-        this.student = {
-          name: fullName || this.student.name,
-          age: this.calculateAge(resp.birthDate) || this.student.age,
-          level: resp.learningLevel ?? this.student.level,
-          photoUrl: resp.photoUrl ?? this.student.photoUrl,
+        this.studentCard = {
+          name: fullName || this.studentCard.name,
+          age: this.calculateAge(resp.BirthDate) || this.studentCard.age,
+          level: resp.LearningLevel ?? this.studentCard.level,
+          photoUrl: this.studentCard.photoUrl,
         };
       });
   }
@@ -82,7 +86,7 @@ export class LessonPlanLayout implements OnInit {
     const date = typeof birthDate === 'string' ? new Date(birthDate) : birthDate;
     const diff = Date.now() - date.getTime();
     const age = new Date(diff).getUTCFullYear() - 1970;
-    return age > 0 ? age : this.student.age;
+    return age > 0 ? age : this.studentCard.age;
   }
 
 
