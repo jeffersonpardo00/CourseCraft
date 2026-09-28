@@ -29,6 +29,5 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapStudentsEndpoints();
 app.MapLessonEndpoints();
-app.MapChatAIEndpoints();
 
 app.Run();

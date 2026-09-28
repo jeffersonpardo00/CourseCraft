@@ -25,11 +25,10 @@ export class LessonPlanLayout implements OnInit {
   ngOnInit(): void {
     this.subGetStudentById();
     this.subGetAllLessons();
-   // this.SubGetGeminiResponse();
+    this.subCreateLessonsPlan();
   }
 
   private subGetAllLessons():void {
-
     this.LessonPlanService
     .getAllLessons()
      .pipe(take(1))
@@ -40,10 +39,9 @@ export class LessonPlanLayout implements OnInit {
       });
   }
 
-  private SubGetGeminiResponse():void {
-
+  private subCreateLessonsPlan():void {
     this.LessonPlanService
-    .testGeminiResponse("tell me about you")
+    .CreateLessonsPlan()
      .pipe(take(1))
       .subscribe((resp: any) => {
         //chage
@@ -51,6 +49,7 @@ export class LessonPlanLayout implements OnInit {
         
       });
   }
+
 
   private subGetStudentById(): void {
     this.studentService

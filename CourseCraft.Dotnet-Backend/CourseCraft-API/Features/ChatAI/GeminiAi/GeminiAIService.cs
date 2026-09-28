@@ -1,6 +1,7 @@
 using System.Net;
 using System.Text;
 using System.Text.Json;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 
 public class GeminiService: IChatAIService
@@ -13,7 +14,25 @@ public class GeminiService: IChatAIService
         _apiKey = configuration["Gemini:ApiKey"] ?? throw new InvalidOperationException("Gemini API key is not configured.");
     }
 
-    public async Task<Result<string>> getChatResponse (ChatAIReq chatAIReq)
+    public Task<Result<string>> GetLessonsPlan(Student student)
+    {
+    
+        var lesson_prompt =
+    $"help me to do a lesson of maths for my student in grade {student.LearningLevel}, " +
+    $"My student interests are {string.Join(", ", student.Interests)}. " +
+    $"Some notes I have been collecting about my student are: {string.Join(", ", student.Notes)}, " +
+    "please be very aware of my student's interest and annotations so the lesson is personalized. " +
+    "The lesson should consist in an Explanation script of the topic and a list of " +
+    "bullet points of strategies to deliver the lesson better. " +
+    "Please answer in JSON form in this way: " +
+    "{ \"Explanation\": \"[the script of the lesson]\", \"Strategies\": \"[strategy 1], [strategy 2], ...\" } " +
+    "DO NOT RESPOND ANYTHING ELSE";
+
+        return  GetChatResponse(new ChatAIReq{ prompt = lesson_prompt});
+
+    }
+
+    private async Task<Result<string>> GetChatResponse (ChatAIReq chatAIReq)
     {
         var requestBody = new 
         {

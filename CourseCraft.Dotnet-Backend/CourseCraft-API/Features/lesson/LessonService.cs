@@ -1,14 +1,10 @@
 public class LessonService : ILessonService
 {
-    public async Task<Result<LessonResponse[]>> GetAllLessons(
-        IChatAIService chatAIService
-    ) {
-        var result = await chatAIService.getChatResponse(
-            new ChatAIReq
-            {
-                prompt = "tell me about you"
-            }
-        );
+    public async Task<Result<LessonResponse[]>> CreateLessonsPlan(
+        IChatAIService chatAIService, 
+        Student student)
+    {
+        var result = await chatAIService.GetLessonsPlan(student);
 
         if (result.IsSuccess)
         {
@@ -40,4 +36,31 @@ public class LessonService : ILessonService
         }
 
     }
+
+    public async Task<Result<LessonResponse[]>> GetAllLessons(
+        IChatAIService chatAIService
+    ) {
+       
+            var mockLessons = new[]
+                {
+                    new LessonResponse(
+                        1,
+                        "Class 1",
+                        "Math",
+                        new DateTime(2023, 1, 1),
+                        new LessonContent
+                        {
+                            Explanation = "Explanation example",
+                            Strategies = "Explanation example"
+                        },
+                        0
+                    )
+                };
+
+            return Result<LessonResponse[]>.Success(mockLessons);
+       
+
+    }
+
+    
 }

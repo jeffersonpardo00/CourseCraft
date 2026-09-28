@@ -13,13 +13,9 @@ export class LessonPlanService {
     return this.http.get<any>(`${environment.apiUrl}/api/lesson`);
   }
 
-  public testGeminiResponse(prompt : string): Observable<any> {
+  public CreateLessonsPlan(): Observable<any> {
     return this.http.post<any>(
-      `${environment.apiUrl}/api/ChatAI/newGeminiPrompt`,
-      {
-        prompt: prompt
-      }
-    );
+      `${environment.apiUrl}/api/lesson/create`, null);
   }
 
 }

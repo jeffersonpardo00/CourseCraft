@@ -16,7 +16,7 @@ public class StudentService(): IStudentService
                 new DateTime(2016, 1, 1),
                 2,
                 ["drawing","basketball"],
-                ["note1"]
+                ["she is still struggling with addition"]
             );
 
         return Result<StudentResponse>.Success(MockStudent);
