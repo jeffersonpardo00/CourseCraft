@@ -5,6 +5,22 @@ But they don’t know:  what to teach, in what order, at what difficulty, or how
 *CourseCraft* is the solution.
 An AI-assisted curriculum guidance for non-professional educators.
 
+# Session 9
+
+## Completed
+- A basic service that create a lessons plan was created in the backend
+- The frontend is able to send a prompt trough a lessons endpoint
+
+## Problems
+- I'm not sure if the student data must travel from the frontend or be pull from DB
+- The prompt sent to the AI-API is still an sketch
+- Don't forget tests
+
+## Next session
+- Send the student object received from the backend to do the AI query []
+- Create a lesson object created with the AI API reponse []
+- Send the lesson to the front end []
+
 # Session 8
 
 ## Completed
@@ -17,7 +33,7 @@ An AI-assisted curriculum guidance for non-professional educators.
 - Dont forget the test!
 
 ## Next session
-- Send a hardcoded prompt from the frontend and receive the response []
+- Send a hardcoded prompt from the frontend and receive the response [*]
 - Make an scketch of how the backend will interact with the AI integration []
 - Create a MVP of the backend behavior []
 
