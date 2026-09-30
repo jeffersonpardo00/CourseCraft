@@ -22,6 +22,19 @@ export const defaultStudentResponse: StudentResponse = {
   Notes: []
  };
 
+export type StudentAIRequest = Omit<StudentResponse, 'Email'>;
+
+export const defaultStudentAIRequest: StudentAIRequest = {
+  FirstName: '',
+  MiddleName: '',
+  LastName: '',
+  LastName2: '',
+  BirthDate: new Date('1900-01-01'),
+  LearningLevel: -1,
+  Interests: [],
+  Notes: []
+ };
+
 export interface StudentCardView {
   name: string;
   age: number;
@@ -36,3 +49,10 @@ export const defaultstudent: StudentCardView = {
   photoUrl:
     'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80',
 };
+
+export const StudentResponseToAIRequest = 
+    (studentResponse: StudentResponse): StudentAIRequest =>
+      {
+        const { Email, ...Resp } = studentResponse;
+        return Resp as StudentAIRequest;
+      }

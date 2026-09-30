@@ -14,7 +14,6 @@ public static class LessonEndpoints
         var result = await service.GetAllLessons(chatAIService);
         return result.ToHttpResult();
     }
-
     private static async Task<IResult> CreateLessonPlan (
         StudentAIRequest student,
         ILessonService service,

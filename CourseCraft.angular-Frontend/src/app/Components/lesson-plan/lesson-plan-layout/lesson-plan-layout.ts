@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { StudentCard } from '../student-card/student-card';
 import { LessonPlan } from '../lesson-plan/lesson-plan';
 import { Student } from '../../../Services/student/student';
-import { take } from 'rxjs';
+import { take, tap } from 'rxjs';
 import {  defaultstudent, 
+          defaultStudentAIRequest, 
           defaultStudentResponse, 
+          StudentAIRequest, 
           StudentCardView, 
-          StudentResponse } from '../../../Models/student';
+          StudentResponse, 
+          StudentResponseToAIRequest} from '../../../Models/student';
 import { LessonPlanService } from '../../../Services/Lesson-plan/lesson-plan';
 import { defaultLessons, LessonI } from '../../../Models/lesson';
 @Component({
@@ -20,6 +23,7 @@ export class LessonPlanLayout implements OnInit {
   public studentCard: StudentCardView = defaultstudent;
   public lessons: LessonI[] = defaultLessons;
   public studentResponse: StudentResponse = defaultStudentResponse;
+  public studentAIRequest: StudentAIRequest = defaultStudentAIRequest;
 
   constructor(
     private studentService: Student,
@@ -29,7 +33,6 @@ export class LessonPlanLayout implements OnInit {
   ngOnInit(): void {
     this.subGetStudentById();
     this.subGetAllLessons();
-    this.subCreateLessonsPlan();
   }
 
   private subGetAllLessons():void {
@@ -43,26 +46,35 @@ export class LessonPlanLayout implements OnInit {
       });
   }
 
-  private subCreateLessonsPlan():void {
-    this.LessonPlanService
-    .CreateLessonsPlan()
-     .pipe(take(1))
-      .subscribe((resp: any) => {
-        //chage
-        console.log(resp);
-        
-      });
+  public subCreateLessonsPlan(studentAIReq: StudentAIRequest): void {
+    if(studentAIReq != defaultStudentAIRequest)
+    {
+      this.LessonPlanService
+      .CreateLessonsPlan(studentAIReq)
+      .pipe(take(1))
+        .subscribe((resp: any) => {
+          //chage
+          console.log(resp);
+        });
+    }
   }
 
 
   private subGetStudentById(): void {
     this.studentService
       .getStudentById(1)
-      .pipe(take(1))
+      .pipe(
+        take(1),
+        tap((resp: StudentResponse) => {
+
+        })
+      )
       .subscribe((resp: StudentResponse) => {
         if (!resp) {
           return;
         }
+
+        this.studentAIRequest = StudentResponseToAIRequest(resp);
 
         const fullName = [
           resp.FirstName,
@@ -81,6 +93,8 @@ export class LessonPlanLayout implements OnInit {
         };
       });
   }
+
+  
 
     private calculateAge(birthDate: string | Date): number {
     const date = typeof birthDate === 'string' ? new Date(birthDate) : birthDate;
