@@ -7,11 +7,10 @@ public class LessonService : ILessonService
         IChatAIService chatAIService
     )
     {
-        var result = await chatAIService.GetLessonsPlan(student);
+        var result = await chatAIService.GenerateLessonsPlan(student);
         string Explanation = "";
         string Strategies = "";
 
-        // Parse into a dynamic JSON document structure
         if(result.Value != null)
         {
             using (JsonDocument doc = JsonDocument.Parse(result.Value))

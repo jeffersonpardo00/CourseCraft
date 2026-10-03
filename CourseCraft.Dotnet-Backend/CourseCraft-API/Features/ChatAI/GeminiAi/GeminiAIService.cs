@@ -14,7 +14,7 @@ public class GeminiService: IChatAIService
         _apiKey = configuration["Gemini:ApiKey"] ?? throw new InvalidOperationException("Gemini API key is not configured.");
     }
 
-    public Task<Result<string>> GetLessonsPlan(StudentAIRequest student)
+    public Task<Result<string>> GenerateLessonsPlan(StudentAIRequest student)
     {
     
         var lesson_prompt =

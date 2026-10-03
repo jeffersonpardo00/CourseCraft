@@ -1,4 +1,4 @@
 public interface IChatAIService
 {
-     public Task<Result<string>> GetLessonsPlan (StudentAIRequest student);
+     public Task<Result<string>> GenerateLessonsPlan (StudentAIRequest student);
 }

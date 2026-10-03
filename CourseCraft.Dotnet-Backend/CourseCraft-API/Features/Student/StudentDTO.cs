@@ -14,9 +14,9 @@ public record StudentRequest
 public record StudentAIRequest
 (
     string FirstName,
-    string MiddleName,
+    string? MiddleName,
     string LastName,
-    string LastName2,
+    string? LastName2,
     DateTime BirthDate,
     int LearningLevel,
     string[] Interests,
