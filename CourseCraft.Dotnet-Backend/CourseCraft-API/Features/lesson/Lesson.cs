@@ -1,7 +1,7 @@
 public class Lesson
 {
     public required int Id { get; set; }
-    public required string Name { get; set; }
+    public required string Title { get; set; }
     public required string Subject { get; set; }
     public DateTime LastAdjustement { get; set; }
     public required LessonContent Content { get; set; }

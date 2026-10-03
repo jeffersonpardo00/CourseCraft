@@ -4,6 +4,6 @@
     <button (click)="subCreateLessonsPlan(studentAIRequest)">
       Create lessons plan
     </button>
-    <app-lesson-plan [lessons]= lessons></app-lesson-plan>
+    <app-lesson-plan [lessons]="($lessonGUILIst | async) ?? defaultLessons"></app-lesson-plan>
   </div>
 </div>

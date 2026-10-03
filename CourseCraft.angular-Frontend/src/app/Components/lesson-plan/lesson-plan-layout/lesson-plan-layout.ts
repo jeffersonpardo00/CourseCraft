@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import { StudentCard } from '../student-card/student-card';
 import { LessonPlan } from '../lesson-plan/lesson-plan';
 import { Student } from '../../../Services/student/student';
-import { take, tap } from 'rxjs';
+import { BehaviorSubject, Subject, take, tap } from 'rxjs';
 import {  defaultstudent, 
           defaultStudentAIRequest, 
           defaultStudentResponse, 
@@ -11,24 +12,27 @@ import {  defaultstudent,
           StudentResponse, 
           StudentResponseToAIRequest} from '../../../Models/student';
 import { LessonPlanService } from '../../../Services/Lesson-plan/lesson-plan';
-import { defaultLessons, LessonI } from '../../../Models/lesson';
+import { defaultLessons, LessonGUI, LessonI } from '../../../Models/lesson';
 @Component({
   selector: 'app-lesson-plan-layout',
-  imports: [StudentCard, LessonPlan],
+  imports: [AsyncPipe, StudentCard, LessonPlan],
   templateUrl: './lesson-plan-layout.html',
   styleUrl: './lesson-plan-layout.scss',
 })
 export class LessonPlanLayout implements OnInit {
 
   public studentCard: StudentCardView = defaultstudent;
-  public lessons: LessonI[] = defaultLessons;
+  public $lessonGUILIst: Subject<LessonGUI[]>;
   public studentResponse: StudentResponse = defaultStudentResponse;
   public studentAIRequest: StudentAIRequest = defaultStudentAIRequest;
+  public defaultLessons: LessonGUI[] = defaultLessons;
 
   constructor(
     private studentService: Student,
     private LessonPlanService: LessonPlanService
-  ) {}
+  ) {
+    this.$lessonGUILIst = new Subject<LessonGUI[]>();
+  }
 
   ngOnInit(): void {
     this.subGetStudentById();
@@ -51,10 +55,18 @@ export class LessonPlanLayout implements OnInit {
     {
       this.LessonPlanService
       .CreateLessonsPlan(studentAIReq)
-      .pipe(take(1))
-        .subscribe((resp: any) => {
-          //chage
-          console.log(resp);
+      .pipe(
+        take(1)
+      )
+        .subscribe(
+          (lessonResp: LessonI) => {
+          this.$lessonGUILIst.next(
+          [
+            {
+              lesson: lessonResp,
+              isOpen: false
+            }
+          ]);
         });
     }
   }

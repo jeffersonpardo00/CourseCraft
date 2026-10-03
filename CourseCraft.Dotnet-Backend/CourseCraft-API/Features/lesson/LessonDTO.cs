@@ -1,7 +1,7 @@
 public record LessonResponse
 (
     int Id,
-    string Name,
+    string Title,
     string Subject,
     DateTime LastAdjustement,
     LessonContent Content,

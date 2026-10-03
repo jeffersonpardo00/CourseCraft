@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 public class LessonService : ILessonService
 {
     public async Task<Result<LessonResponse[]>> CreateLessonsPlan (
@@ -6,7 +8,21 @@ public class LessonService : ILessonService
     )
     {
         var result = await chatAIService.GetLessonsPlan(student);
+        string Explanation = "";
+        string Strategies = "";
 
+        // Parse into a dynamic JSON document structure
+        if(result.Value != null)
+        {
+            using (JsonDocument doc = JsonDocument.Parse(result.Value))
+            {
+                JsonElement root = doc.RootElement;
+                Explanation = root.GetProperty("Explanation").GetString()??"";
+                Strategies = root.GetProperty("Strategies").GetString()??"";
+                Console.WriteLine($"Explanation: {Explanation}, Strategies: {Strategies}");
+            }
+        }
+        
         if (result.IsSuccess)
         {
             var mockLessons = new[]
@@ -18,8 +34,8 @@ public class LessonService : ILessonService
                         new DateTime(2023, 1, 1),
                         new LessonContent
                         {
-                            Explanation = result.Value ?? "",
-                            Strategies = "Explanation example"
+                            Explanation = Explanation,
+                            Strategies = Strategies
                         },
                         0
                     )

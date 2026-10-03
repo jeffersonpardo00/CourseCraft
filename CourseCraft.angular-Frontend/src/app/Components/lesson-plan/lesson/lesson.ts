@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LessonContent } from '../../../Models/lesson';
 
 @Component({
   selector: 'app-lesson',
@@ -7,5 +8,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './lesson.scss',
 })
 export class Lesson {
-  @Input() content: string = 'No content provided';
+  @Input() content: LessonContent = {
+    explanation: 'No content provided',
+    strategies:'No content provided'
+  };
 }
