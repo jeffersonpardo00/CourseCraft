@@ -5,6 +5,22 @@ But they don’t know:  what to teach, in what order, at what difficulty, or how
 *CourseCraft* is the solution.
 An AI-assisted curriculum guidance for non-professional educators.
 
+# Session 10
+
+## Completed
+- The frontend receives a lessons plan from gemini.
+- The backend generates an lessonsPlan object correctly.
+
+## Problems
+- The Gemini API usually returns a service Unavailable error, A mocked response was needed.
+- The data is not persistent, a database integration is needed
+
+## Next session
+- Complete tests for lessons feature []
+- Create a repository pattern to incorporate databases []
+- Create a pattern so it is easy to change the AI provider []
+- Connect a local database []
+
 # Session 9
 
 ## Completed
@@ -17,9 +33,9 @@ An AI-assisted curriculum guidance for non-professional educators.
 - Don't forget tests
 
 ## Next session
-- Send the student object received from the backend to do the AI query []
-- Create a lesson object created with the AI API reponse []
-- Send the lesson to the front end []
+- Send the student object received from the backend to do the AI query [*]
+- Create a lesson object created with the AI API reponse [*]
+- Send the lesson to the front end [*]
 
 # Session 8
 
