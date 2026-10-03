@@ -59,11 +59,12 @@ export class LessonPlanLayout implements OnInit {
         take(1)
       )
         .subscribe(
-          (lessonResp: LessonI) => {
+          (lessonResp: LessonI[]) => {
+
           this.$lessonGUILIst.next(
           [
             {
-              lesson: lessonResp,
+              lesson: lessonResp[0],
               isOpen: false
             }
           ]);

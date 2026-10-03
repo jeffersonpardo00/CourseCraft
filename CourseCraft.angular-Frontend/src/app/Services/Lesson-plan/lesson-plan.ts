@@ -15,8 +15,8 @@ export class LessonPlanService {
     return this.http.get<any>(`${environment.apiUrl}/api/lesson`);
   }
 
-  public CreateLessonsPlan(studentAIRequest: StudentAIRequest): Observable<LessonI> {
-    return this.http.post<LessonI>(
+  public CreateLessonsPlan(studentAIRequest: StudentAIRequest): Observable<LessonI[]> {
+    return this.http.post<LessonI[]>(
       `${environment.apiUrl}/api/lesson/create`, studentAIRequest);
   }
 
