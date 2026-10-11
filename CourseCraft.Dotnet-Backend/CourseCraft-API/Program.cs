@@ -16,7 +16,10 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<ILessonService, LessonService>();
+builder.Services.AddScoped<IDataBaseService, DataBaseService>();
+builder.Services.AddScoped<IDataProvider, MySQLDataBase>();
 builder.Services.AddHttpClient<IChatAIService, GeminiService>();
+
 var app = builder.Build();
 
 app.UseCors();

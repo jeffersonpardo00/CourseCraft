@@ -17,7 +17,8 @@ public static class LessonEndpoints
     private static async Task<IResult> CreateLessonPlan (
         StudentAIRequest student,
         ILessonService service,
-        IChatAIService chatAIService
+        IChatAIService chatAIService,
+        IDataBaseService dataBaseService
     )
     {
         var result = await service.CreateLessonsPlan(student, chatAIService);

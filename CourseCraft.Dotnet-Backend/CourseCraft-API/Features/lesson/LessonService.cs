@@ -2,6 +2,12 @@ using System.Text.Json;
 
 public class LessonService : ILessonService
 {
+    private IDataBaseService _dataBaseService;
+    public LessonService(IDataBaseService dataBaseService)
+    {
+        _dataBaseService = dataBaseService;
+    }
+
     public async Task<Result<LessonResponse[]>> CreateLessonsPlan (
         StudentAIRequest student,
         IChatAIService chatAIService
@@ -10,6 +16,7 @@ public class LessonService : ILessonService
         var result = await chatAIService.GenerateLessonsPlan(student);
         string Explanation = "";
         string Strategies = "";
+
 
         if(result.Value != null)
         {
@@ -39,6 +46,9 @@ public class LessonService : ILessonService
                         0
                     )
                 };
+            
+            var DBResult = await _dataBaseService.SaveLessonsPlan(mockLessons);
+            Console.WriteLine(DBResult);
 
             return Result<LessonResponse[]>.Success(mockLessons);
         }
