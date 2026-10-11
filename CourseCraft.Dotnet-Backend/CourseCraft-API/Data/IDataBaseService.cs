@@ -1,4 +1,4 @@
 public interface IDataBaseService
 {
-    public Task<string> SaveLessonsPlan(LessonResponse[] lessonResponses);
+    public Task<DBResult<string>> SaveLessonsPlan(LessonResponse[] lessonResponses);
 }

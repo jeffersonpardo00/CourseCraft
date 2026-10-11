@@ -5,8 +5,11 @@ public class DataBaseService: IDataBaseService
     {
         _dataProvider = dataProvider;
     }
-    public async Task<string> SaveLessonsPlan(LessonResponse[] lessonResponses)
+    public async Task<DBResult<string>> SaveLessonsPlan(LessonResponse[] lessonResponses)
     {
-        return await _dataProvider.SaveLessonsPlan(lessonResponses);
+        var result = _dataProvider.SaveLessonsPlan(lessonResponses);
+
+
+        return  DBResult<string>.Success("ok");
     }
 }
